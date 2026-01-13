@@ -1,0 +1,3 @@
+[simulation]
+board = "esp32-devkit-v1"
+firmware = ".pio/build/esp32dev/firmware.elf"
