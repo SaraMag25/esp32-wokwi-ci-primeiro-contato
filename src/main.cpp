@@ -2,8 +2,12 @@
 
 void setup() {
   Serial.begin(115200);
+  
+  delay(100); 
+
   pinMode(2, OUTPUT);
-  Serial.println("INICIANDO_TESTE");
+  
+  Serial.println("PISCANDO");
 }
 
 void loop() {
@@ -11,5 +15,4 @@ void loop() {
   delay(500);
   digitalWrite(2, LOW);
   delay(500);
-  Serial.println("PISCANDO");
 }
