@@ -1,19 +1,15 @@
 #include <Arduino.h>
 
-#define LED_PIN 2
-
 void setup() {
-  pinMode(LED_PIN, OUTPUT);
   Serial.begin(115200);
-  Serial.println("BOOT OK");
+  pinMode(2, OUTPUT);
+  Serial.println("INICIANDO_TESTE");
 }
 
 void loop() {
-  digitalWrite(LED_PIN, HIGH);
-  Serial.println("LED ON");
+  digitalWrite(2, HIGH);
   delay(500);
-
-  digitalWrite(LED_PIN, LOW);
-  Serial.println("LED OFF");
+  digitalWrite(2, LOW);
   delay(500);
+  Serial.println("PISCANDO");
 }
