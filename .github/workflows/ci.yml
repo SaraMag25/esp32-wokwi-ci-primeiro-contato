@@ -1,5 +1,4 @@
 name: ESP32 Wokwi CI
-
 on:
   push:
   pull_request:
@@ -7,23 +6,26 @@ on:
 jobs:
   build-and-simulate:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
+        
       - name: Set up Python
         uses: actions/setup-python@v5
-
+        with:
+          python-version: '3.x'
+          
       - name: Install PlatformIO
         run: pip install platformio
-
+        
       - name: Build firmware
         run: pio run
-
+        
       - name: Test with Wokwi
         uses: wokwi/wokwi-ci-action@v1
         with:
           token: ${{ secrets.WOKWI_CLI_TOKEN }}
-          path: .
-          expect_text: "PISCANDO"
+          path: '/'
+          timeout: 15000
+          expect_text: 'PISCANDO'
+          fail_text: 'ERROR'

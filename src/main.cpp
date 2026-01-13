@@ -2,12 +2,14 @@
 
 void setup() {
   Serial.begin(115200);
+  while(!Serial) {
+    delay(10);
+  }
   
-  delay(100); 
-
   pinMode(2, OUTPUT);
   
   Serial.println("PISCANDO");
+  Serial.flush(); 
 }
 
 void loop() {
